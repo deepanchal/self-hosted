@@ -1,8 +1,7 @@
-version: '3.5'
 services:
   atuin:
     restart: always
-    image: ghcr.io/atuinsh/atuin:<LATEST TAGGED RELEASE>
+    image: ghcr.io/atuinsh/atuin:18.2.0
     command: server start
     volumes:
       - "./config:/config"
@@ -10,6 +9,7 @@ services:
       - postgresql:db
     ports:
       - 8888:8888
+    user: "0:0"
     environment:
       ATUIN_HOST: "0.0.0.0"
       ATUIN_OPEN_REGISTRATION: "true"
