@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   postgres:
     image: postgres:14-alpine
@@ -12,7 +10,8 @@ services:
     restart: always
 
   dnote:
-    image: dnote/dnote:latest
+    # image: dnote/dnote:latest
+    image: maaroen/dnote-arm64
     environment:
       GO_ENV: PRODUCTION
       DBSkipSSL: "true"
@@ -21,7 +20,7 @@ services:
       DBName: dnote
       DBUser: dnote
       DBPassword: dnote
-      WebURL: localhost:3000
+      WebURL: localhost:3333
       OnPremises: "true"
       SmtpHost:
       SmtpPort:
@@ -29,7 +28,7 @@ services:
       SmtpPassword:
       DisableRegistration: "false"
     ports:
-      - 3000:3000
+      - 3333:3000
     depends_on:
       - postgres
     restart: always
