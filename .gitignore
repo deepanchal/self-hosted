@@ -117,3 +117,5 @@ fabric.properties
 ## Overrides
 !.envrc
 .envrc.local
+.env
+!.env.example
