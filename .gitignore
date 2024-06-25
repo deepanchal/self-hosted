@@ -119,3 +119,10 @@ fabric.properties
 .envrc.local
 .env
 !.env.example
+
+### apps overrides
+apps/atuin/config
+apps/librechat/data-node
+apps/librechat/images
+apps/librechat/logs
+apps/librechat/meili_data*
