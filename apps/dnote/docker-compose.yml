@@ -10,8 +10,11 @@ services:
     restart: always
 
   dnote:
-    # image: dnote/dnote:latest
-    image: maaroen/dnote-arm64
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        tarballUrl: https://github.com/dnote/dnote/releases/download/server-v2.1.1/dnote_server_2.1.1_linux_arm64.tar.gz
     environment:
       GO_ENV: PRODUCTION
       DBSkipSSL: "true"
