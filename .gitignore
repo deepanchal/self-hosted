@@ -122,6 +122,8 @@ fabric.properties
 
 ### apps overrides
 apps/atuin/config
+apps/atuin/database
+apps/dnote/dnote_data
 apps/librechat/data-node
 apps/librechat/images
 apps/librechat/logs
