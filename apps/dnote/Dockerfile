@@ -1,21 +1,23 @@
 FROM alpine:latest
 
-ARG tarballName
-RUN test -n "$tarballName"
+ARG tarballUrl
+RUN test -n "$tarballUrl"
 
-# add dependency to execute a golang binary with dynamical linking.
+# add dependency to execute a golang binary with dynamic linking
 RUN apk add --no-cache \
   libc6-compat \
-  gcompat
+  gcompat \
+  wget
 
-WORKDIR dnote
+WORKDIR /dnote
 
-COPY "$tarballName" .
-RUN tar -xvzf "$tarballName"
+# Fetching the tarball from the URL
+RUN wget -O dnote.tar.gz "$tarballUrl" \
+  && tar -xvzf dnote.tar.gz
 
 COPY entrypoint.sh .
 ENTRYPOINT ["./entrypoint.sh"]
 
-CMD ./dnote-server start
+CMD ["./dnote-server", "start"]
 
 EXPOSE 3000
