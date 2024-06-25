@@ -12,7 +12,7 @@ RUN apk add --no-cache \
 WORKDIR /dnote
 
 # Fetching the tarball from the URL
-RUN wget -Oq dnote.tar.gz "$tarballUrl" \
+RUN wget -O dnote.tar.gz "$tarballUrl" \
   && tar -xvzf dnote.tar.gz
 
 COPY entrypoint.sh .
