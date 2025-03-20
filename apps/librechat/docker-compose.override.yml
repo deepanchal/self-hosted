@@ -22,9 +22,10 @@
 # ---------------------------------------------------
 
 services:
-  # api:
-  #   # For login not persisting since it runs in production mode
-  #   command: npm run backend:dev
+  api:
+    # For login not persisting since it runs in production mode
+    # See: https://github.com/danny-avila/LibreChat/discussions/572#discussioncomment-8708658
+    command: npm run backend:dev
   # For RPI
   mongodb:
     # 4.4.18 is the last version that runs on RPi's ARM.
