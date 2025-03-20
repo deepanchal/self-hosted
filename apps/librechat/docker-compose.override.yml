@@ -27,7 +27,7 @@ services:
     # See: 
     # https://github.com/danny-avila/LibreChat/discussions/572#discussioncomment-8708658
     # https://github.com/danny-avila/LibreChat/discussions/572#discussioncomment-11149885
-    command: node api/server/index.js
+    command: node /app/api/api/server/index.js
     environment:
       - NODE_ENV=development
   # For RPI
